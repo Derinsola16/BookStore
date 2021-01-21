@@ -1,0 +1,24 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "A continuation of the coursework repo",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Derinsola16/BookStore.git"
+  },
+  "author": "Derin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Derinsola16/BookStore/issues"
+  },
+  "homepage": "https://github.com/Derinsola16/BookStore#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "nodemon": "^2.0.7"
+  }
+}
