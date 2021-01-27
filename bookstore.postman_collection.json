@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "3dbe3c08-0dfa-4d37-a376-b28a4d596dc1",
+		"name": "bookstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "retrive root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000"
+			},
+			"response": []
+		},
+		{
+			"name": "create lessons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"id\": 101,\n    \"topic\": \"History\",\n    \"location\": \"Peru\",\n    \"price\": \"$12\",\n    \"image\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRL6G73lMGemPaEXgBaN4YkhLefNcYjcbotNw&usqp=CAU\",\n    \"numberOfSpace\": 13\n  },\n  {\n    \"id\": 102,\n    \"topic\": \"Maths\",\n    \"location\": \"Ghana\",\n    \"price\": \"$90\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.accountingmadeeasy.co.za%2Fblog%2Fis-accounting-all-about-maths%2F&psig=AOvVaw0XTa775_ZIzZdLvWY1DM7u&ust=1611281368468000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICdhYL5q-4CFQAAAAAdAAAAABAD\",\n    \"numberOfSpace\": 29\n  },\n  {\n    \"id\": 103,\n    \"topic\": \"Grammar\",\n    \"location\": \"London\",\n    \"price\": \"$50\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fhabitsofatravellingarchaeologist.com%2F6-resources-for-improving-grammar%2F&psig=AOvVaw00HQwZANFSeFxtCfMr3DFs&ust=1611281252951000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNDhs9H4q-4CFQAAAAAdAAAAABAP\",\n    \"numberOfSpace\": 17\n  },\n  {\n    \"id\": 104,\n    \"topic\": \"Music\",\n    \"location\": \"France\",\n    \"price\": \"$20\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.kenningtonacademy.co.uk%2Fmusic%2F&psig=AOvVaw37nRMBJiSv0ZETZH-pqNEL&ust=1611281195038000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjJ_a74q-4CFQAAAAAdAAAAABAD\",\n    \"numberOfSpace\": 16\n  },\n  {\n    \"id\": 105,\n    \"topic\": \"Civic\",\n    \"location\": \"America\",\n    \"price\": \"$70\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fparticipedia.net%2Fmethod%2F4298&psig=AOvVaw3gNClfItTY8yTaV4j0jbB6&ust=1611281118199000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNDngI74q-4CFQAAAAAdAAAAABAJ\",\n    \"numberOfSpace\": 19\n  },\n  {\n    \"id\": 106,\n    \"topic\": \"Biology\",\n    \"location\": \"Nigeria\",\n    \"price\": \"$100\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fimage-vector%2Fbiology-hand-drawn-doodles-lettering-education-1264592503&psig=AOvVaw3mG-4-I1LKGyTWEUzdqdIw&ust=1611281029873000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJCWseT3q-4CFQAAAAAdAAAAABAP\",\n    \"numberOfSpace\": 25\n  },\n  {\n    \"id\": 107,\n    \"topic\": \"Physics\",\n    \"location\": \"India\",\n    \"price\": \"$60\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Flagtutor.com%2Fwordpress%2Findex.php%2Frequirements-for-physics-in-unilag%2F&psig=AOvVaw2LsU1AymjvhXpFgiYBfQzq&ust=1611280939556000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKCpkL73q-4CFQAAAAAdAAAAABAD\",\n    \"numberOfSpace\": 10\n  },\n  {\n    \"id\": 108,\n    \"topic\": \"Chemistry\",\n    \"location\": \"China\",\n    \"price\": \"$90\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thoughtco.com%2Fwhat-is-chemistry-p2-604135&psig=AOvVaw1QjVA9Rs7tr2z4D51zOuRK&ust=1611280839722000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMDdqIr3q-4CFQAAAAAdAAAAABAD\",\n    \"numberOfSpace\": 30\n  },\n  {\n    \"id\": 109,\n    \"topic\": \"Verbal Reasoning\",\n    \"location\": \"Korea\",\n    \"price\": \"$30\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.explorelearning.co.uk%2F11-plus-exams%2Fverbal-reasoning%2F&psig=AOvVaw3-aZy8njQgDQJtyqp-pqxf&ust=1611280732660000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPiy3db2q-4CFQAAAAAdAAAAABAK\",\n    \"numberOfSpace\": 15\n  },\n  {\n    \"id\": 110,\n    \"topic\": \"English\",\n    \"location\": \"London\",\n    \"price\": \"$50\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thestatesman.com%2Fopinion%2Fenglish-sections-education-1502737917.html&psig=AOvVaw27yyliBDyBt3SLXXrsPww6&ust=1611280604858000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNizpKD2q-4CFQAAAAAdAAAAABAI\",\n    \"numberOfSpace\": 20\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/collection/lesson"
+			},
+			"response": []
+		},
+		{
+			"name": "retrive all lessons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/collection/lesson"
+			},
+			"response": []
+		},
+		{
+			"name": "create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"mary\",\n    \"phoneNumber\": \"9023467853\",\n    \"lesson_id\": \"6008da9c94cae79a05f50e3e\",\n    \"numberOfSpace\": 9\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/collection/order"
+			},
+			"response": []
+		},
+		{
+			"name": "update lesson space",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"space\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/collection/lesson/6008da9c94cae79a05f50e3e"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

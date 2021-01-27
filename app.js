@@ -3,11 +3,20 @@ const express = require('express')
 const app = express()
 app.use(express.json());
 const ObjectId = require("mongodb").ObjectId;
+var path = require("path");
+var fs = require("fs");
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+});
+
+// the 'logger' middleware
+app.use(function (req, res, next) {
+  console.log("Request IP: " + req.url);
+  console.log("Request date: " + new Date());
+  next(); //this will stop the browser from hanging
 });
 
 
@@ -62,8 +71,33 @@ app.put("/collection/:collectionName/:id", (req, res, next) => {
   );
 });
 
+// The static file server middleware  - used to retrive the files from static folder
+app.use(function (req, res, next) {
+  // Uses path.join to find the path where the file should be
+  var filePath = path.join(__dirname, "static", req.url);
+  // Built-in fs.stat gets info about a file
+  fs.stat(filePath, function (err, fileInfo) {
+    if (err) {
+      next();
+      return;
+    }
+    if (fileInfo.isFile()) res.sendFile(filePath);
+    else next();
+  });
+});
 
-const port = process.env.PORT || 3000;
+//ERROR HANDLING MIDDLEWARE
+// There is no 'next' argument because this is the last middleware.
+app.use(function (req, res) {
+  // Sets the status code to 404
+  res.status(404);
+  // Sends the error "File not found!â€
+  res.send("File not found!");
+});
+
+
+
+const port = process.env.PORT || 4000;
 
 app.listen(port);
 console.log("Running on 3k" & port);
