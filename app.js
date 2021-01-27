@@ -63,7 +63,7 @@ app.put("/collection/:collectionName/:id", (req, res, next) => {
 });
 
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 app.listen(port);
 console.log("Running on 3k" & port);
