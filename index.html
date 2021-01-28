@@ -21,14 +21,8 @@
   <body>
     <div id="app" class="">
       <!-- Header -->
-      <nav class="navbar navbar-dark bg-info mb-5">
+      <nav class="navbar navbar-dark bg-dark mb-5">
         <a href="shop.html" class="navbar-brand">{{appName}}</a>
-        <button
-          class="btn btn-outline-success my-2 my-sm-0"
-          v-if="!showProduct"
-        >
-          <i class="fa fa-cart-plus"></i> {{cartItem}}
-        </button>
         <button
           class="btn btn-outline-danger my-2 my-sm-0"
           @click="checkout"
@@ -40,10 +34,12 @@
         <button
           class="btn btn-outline-warning my-2 my-sm-0"
           @click="checkout"
-          v-else
+          v-if="Object.keys(cart).length > 0"
         >
           <i class="fa fa-cart-plus"></i> <span>{{cartItem}}</span> Cart
         </button>
+
+       
       </nav>
       <!-- Header Ends -->
 
@@ -254,6 +250,11 @@
         },
 
         cartCount(id) {
+          // Object.keys(this.cart).map((item) => {
+          //   return {
+          //     numberOfSpace: this.cart[item] === id,
+          //   };
+          // });
           let count = 0;
 
           for (let i = 0; i < Object.keys(this.cart).length; i++) {
@@ -269,16 +270,18 @@
         },
 
         updateLesson: function () {
-          fetch("http://localhost:4000/collection/order", {
-            method: "PUT", // set the HTTP method as 'POST'
+          
+          fetch("http://localhost:4000/collection/lesson", {
+            method: "PUT", // set the HTTP method as 'PUT'
             headers: {
               "Content-Type": "application/json", // set the data type as JSON
             },
-            body: JSON.stringify(newProduct), // need to stringify the JSON object
+            body: JSON.stringify(updatedProduct), // need to stringify the JSON object
           });
         },
 
         order() {
+          this.updateLesson()
           let order = Object.keys(this.cart).map((item) => {
             return {
               lessonId: this.cart[item].id,
