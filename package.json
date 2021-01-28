@@ -4,7 +4,7 @@
   "description": "A continuation of the coursework repo",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",

@@ -14,8 +14,7 @@
     />
     <!-- <script src="cart.js"></script> -->
 
-    <style>
-    </style>
+    <style></style>
   </head>
 
   <body>
@@ -34,12 +33,10 @@
         <button
           class="btn btn-outline-warning my-2 my-sm-0"
           @click="checkout"
-          v-if="Object.keys(cart).length > 0"
+          v-if="cartItem"
         >
           <i class="fa fa-cart-plus"></i> <span>{{cartItem}}</span> Cart
         </button>
-
-       
       </nav>
       <!-- Header Ends -->
 
@@ -139,8 +136,7 @@
                   <h3>Location: {{lesson.location}}</h3>
                   <h3>Price: {{lesson.price}}</h3>
                   <h3 v-on="lesson.numberOfSpace - cartCount(lesson.id) < 0">
-                    Items Remaining: {{lesson.numberOfSpace -
-                    cartCount(lesson.id)}}
+                    Items Remaining: {{lesson.numberOfSpace }}
                   </h3>
                 </div>
                 <div>
@@ -225,8 +221,6 @@
         user: {
           name: "",
           number: "",
-          numOfSpace: "",
-          lessonId: "",
         },
         sortBy: "price",
         orderBy: "-1",
@@ -250,11 +244,6 @@
         },
 
         cartCount(id) {
-          // Object.keys(this.cart).map((item) => {
-          //   return {
-          //     numberOfSpace: this.cart[item] === id,
-          //   };
-          // });
           let count = 0;
 
           for (let i = 0; i < Object.keys(this.cart).length; i++) {
@@ -269,24 +258,30 @@
           return lesson.numberOfSpace > this.cartCount(lesson.id);
         },
 
-        updateLesson: function () {
-          
-          fetch("http://localhost:4000/collection/lesson", {
+        updatedLesson: function () {
+          let newOrder = Object.keys(this.cart).map((item) => {
+            return {
+              numberOfSpace:
+                this.cart[item].numberOfSpace - this.cart[item].qty,
+              id: this.cart[item]._id,
+            };
+          });
+          fetch(`http://localhost:4000/collection/lesson/${newOrder.id}`, {
             method: "PUT", // set the HTTP method as 'PUT'
             headers: {
               "Content-Type": "application/json", // set the data type as JSON
             },
-            body: JSON.stringify(updatedProduct), // need to stringify the JSON object
+            body: JSON.stringify(newOrder), // need to stringify the JSON object
           });
         },
 
         order() {
-          this.updateLesson()
+          this.updatedLesson();
           let order = Object.keys(this.cart).map((item) => {
             return {
               lessonId: this.cart[item].id,
               numberOfSpace: this.cart[item].qty,
-              topic: this.cart[item].topic
+              topic: this.cart[item].topic,
             };
           });
           const newProduct = {
