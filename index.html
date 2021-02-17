@@ -275,7 +275,7 @@
           // http://localhost:4000 change url to this to work locally
           // https://derinsola16.github.io change url to this to work online
           fetch(
-            `https://derinsola16.github.io/collection/lesson/${newOrder.id}`,
+            `http://localhost:4000/collection/lesson/${newOrder.id}`,
             {
               method: "PUT", // set the HTTP method as 'PUT'
               headers: {
@@ -302,7 +302,7 @@
           };
           // http://localhost:4000 change url to this to work locally
           // https://derinsola16.github.io change url to this to work online
-          fetch("https://derinsola16.github.io/collection/order", {
+          fetch("http://localhost:4000/collection/order", {
             method: "POST", // set the HTTP method as 'POST'
             headers: {
               "Content-Type": "application/json", // set the data type as JSON
@@ -316,7 +316,7 @@
         // Fetch lessons from database
         // http://localhost:4000 change url to this to work locally
         // https://derinsola16.github.io change url to this to work online
-        fetch("https://derinsola16.github.io/collection/lesson").then(function (
+        fetch("http://localhost:4000/collection/lesson").then(function (
           res
         ) {
           res.json().then(function (results) {
