@@ -273,9 +273,9 @@
             };
           });
           // http://localhost:4000 change url to this to work locally
-          // https://derinsola16.github.io change url to this to work online
+          // https://schoolstore.herokuapp.com change url to this to work online
           fetch(
-            `http://localhost:4000/collection/lesson/${newOrder.id}`,
+            `https://schoolstore.herokuapp.com/collection/lesson/${newOrder.id}`,
             {
               method: "PUT", // set the HTTP method as 'PUT'
               headers: {
@@ -301,8 +301,8 @@
             orderDetails: order,
           };
           // http://localhost:4000 change url to this to work locally
-          // https://derinsola16.github.io change url to this to work online
-          fetch("http://localhost:4000/collection/order", {
+          // https://schoolstore.herokuapp.com change url to this to work online
+          fetch("https://schoolstore.herokuapp.com/collection/order", {
             method: "POST", // set the HTTP method as 'POST'
             headers: {
               "Content-Type": "application/json", // set the data type as JSON
@@ -314,9 +314,9 @@
       },
       created: function () {
         // Fetch lessons from database
-        // http://localhost:4000 change url to this to work locally
-        // https://derinsola16.github.io change url to this to work online
-        fetch("http://localhost:4000/collection/lesson").then(function (
+        // http://localhost:4000/collection/lesson change url to this to work locally
+        // https://schoolstore.herokuapp.com/collection/lesson change url to this to work online
+        fetch("https://schoolstore.herokuapp.com/collection/lesson").then(function (
           res
         ) {
           res.json().then(function (results) {
