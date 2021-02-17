@@ -263,7 +263,7 @@
             return {
               numberOfSpace:
                 this.cart[item].numberOfSpace - this.cart[item].qty,
-              id: this.cart[item]._id,
+                id: this.cart[item]._id,
             };
           });
           fetch(`http://localhost:4000/collection/lesson/${newOrder.id}`, {
