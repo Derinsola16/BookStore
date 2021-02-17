@@ -12,15 +12,15 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link rel="manifest" href="bookstore.webmanifest">
+    <link rel="manifest" href="bookstore.webmanifest" />
     <!-- <script src="cart.js"></script> -->
 
     <style></style>
     <script>
-      if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('service-worker.js');
-      };
-  </script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
   </head>
 
   <body>
@@ -269,16 +269,21 @@
             return {
               numberOfSpace:
                 this.cart[item].numberOfSpace - this.cart[item].qty,
-                id: this.cart[item]._id,
+              id: this.cart[item]._id,
             };
           });
-          fetch(`http://localhost:4000/collection/lesson/${newOrder.id}`, {
-            method: "PUT", // set the HTTP method as 'PUT'
-            headers: {
-              "Content-Type": "application/json", // set the data type as JSON
-            },
-            body: JSON.stringify(newOrder), // need to stringify the JSON object
-          });
+          // http://localhost:4000 change url to this to work locally
+          // https://derinsola16.github.io change url to this to work online
+          fetch(
+            `https://derinsola16.github.io/collection/lesson/${newOrder.id}`,
+            {
+              method: "PUT", // set the HTTP method as 'PUT'
+              headers: {
+                "Content-Type": "application/json", // set the data type as JSON
+              },
+              body: JSON.stringify(newOrder), // need to stringify the JSON object
+            }
+          );
         },
 
         order() {
@@ -295,7 +300,9 @@
             phoneNumber: this.user.number,
             orderDetails: order,
           };
-          fetch("http://localhost:4000/collection/order", {
+          // http://localhost:4000 change url to this to work locally
+          // https://derinsola16.github.io change url to this to work online
+          fetch("https://derinsola16.github.io/collection/order", {
             method: "POST", // set the HTTP method as 'POST'
             headers: {
               "Content-Type": "application/json", // set the data type as JSON
@@ -307,7 +314,11 @@
       },
       created: function () {
         // Fetch lessons from database
-        fetch("http://localhost:4000/collection/lesson").then(function (res) {
+        // http://localhost:4000 change url to this to work locally
+        // https://derinsola16.github.io change url to this to work online
+        fetch("https://derinsola16.github.io/collection/lesson").then(function (
+          res
+        ) {
           res.json().then(function (results) {
             // save the returned JSON object to 'product'
             // note that we used 'lesson.product' instead of 'this.product'
